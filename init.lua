@@ -3,6 +3,8 @@
 vim.g.mapleaer = "," -- Make sure to set `mapleader` before lazy so your mappings are correct
 
 vim.opt.number = true
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 -- [[ Filetypes ]]
 vim.opt.encoding = 'utf8'            -- str:  String encoding to use
@@ -47,6 +49,7 @@ require("lazy").setup({
     { "hrsh7th/cmp-nvim-lsp" },
     { "hrsh7th/cmp-buffer" },
     { "hrsh7th/nvim-cmp" },
+    { "nvim-tree/nvim-tree.lua" },
 })
 
 vim.o.backgrund = "dark" -- or "light" for light mode
@@ -63,7 +66,7 @@ require("lualine").setup({
 
 require("mason").setup()
 require("mason-lspconfig").setup({
-    ensure_installed = { "rust_analyzer", "pyright" },
+    ensure_installed = { "rust_analyzer", "pyright", "clangd" },
 })
 
 
@@ -84,3 +87,4 @@ lspconfig.rust_analyzer.setup {
   },
 }
 
+require("nvim-tree").setup()
